@@ -14,7 +14,15 @@ while True:
     if num == value :
         print(f'猜對了，答案是{value}')
         print(f'共猜了{sum}')
-        break
+        print('win')
+       #break 
+        a = input('是否在玩一次?(yse/no)')
+        if a == 'yes':
+            min = 1
+            max = 100
+            sum = 0
+        else:
+            break
     elif num >value:
         print('小一點')
         max = num - 1
@@ -23,5 +31,5 @@ while True:
         min = num + 1
     print(f'共猜了{sum}次')
 
-print('win')
+
 
