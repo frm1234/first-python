@@ -1,9 +1,8 @@
 
 
 
-import random
-
 def playgame():
+    import random
     min = 1
     max = 100
     value = random.randint(min,max)
