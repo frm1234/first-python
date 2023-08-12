@@ -83,3 +83,5 @@ st.title("台灣個縣市氣候:")
 st.subheader("攝氐")
 #顯非DataFrame
 st.dataframe(dataFrame,width=800,height=900)
+
+st.line_chart(dataFrame)
