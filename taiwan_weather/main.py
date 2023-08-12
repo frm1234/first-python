@@ -78,9 +78,13 @@ if not check_file_exist():
 
 file_path = get_fileName_path()
 dataFrame = pd.read_csv(file_path)
+dataFrame['啟始時間'] = pd.to_datetime(dataFrame['啟始時間'])
+dataFrame['結束時間'] = pd.to_datetime(dataFrame['結束時間'])
+dataFrame['啟始時間'] = dataFrame['啟始時間'].dt.strftime('%Y-%m-%d日-%H點')
+dataFrame['結束時間'] = dataFrame['結束時間'].dt.strftime('%Y-%m-%d日-%H點')
 #顯示標題
-st.title("台灣個縣市氣候:")
-st.subheader("攝氐")
+st.title("台灣各縣市氣候:")
+st.subheader("攝氏")
 #顯非DataFrame
 st.dataframe(dataFrame,width=800,height=900)
 
