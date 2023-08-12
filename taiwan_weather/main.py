@@ -3,6 +3,8 @@ import csv
 from datetime import datetime
 import pytz
 import os
+import pandas as pd
+import streamlit as st
 
 def download_data()->dict:
     url = 'https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=rdec-key-123-45678-011121314&format=JSON'
@@ -73,3 +75,11 @@ if not check_file_exist():
     is_save = save_csv(csv_list,get_fileName_path())
     if is_save:
         print("存檔成功")  
+
+file_path = get_fileName_path()
+dataFrame = pd.read_csv(file_path)
+#顯示標題
+st.title("台灣個縣市氣候:")
+st.subheader("攝氐")
+#顯非DataFrame
+st.dataframe(dataFrame,width=800,height=900)
